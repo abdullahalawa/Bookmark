@@ -30,10 +30,12 @@
   <body>
     <!-- Header -->
     <div class="header">
-      <div class="container border-bottom">
+      <div class="container border-bottom border-black">
         <div class="row">
           <div class="col">
-            <h1 class="py-5 text-center">Bookmarker</h1>
+            <h1 class="py-5 text-center position-relative">
+              <span class="position-relative">Bookmarker</span>
+            </h1>
           </div>
         </div>
       </div>
@@ -42,17 +44,24 @@
     <!-- Main -->
     <div class="main">
       <div class="section">
-        <div class="container py-4">
+        <div class="container py-4 border-bottom border-black">
           <div class="row">
             <div class="col">
               <div class="form-inputs">
-                <h3 class="text-center">Bookmark your favorite sites</h3>
+                <h3 class="text-center fw-normal">
+                  <i class="fa-solid fa-bookmark"></i>
+                  Bookmark your favorite sites
+                  <i class="fa-solid fa-bookmark"></i>
+                </h3>
 
                 <!-- form -->
 
                 <!-- sitename field -->
-                <div class="mb-3">
-                  <label for="siteName" class="form-label">Site Name</label>
+                <div class="mt-5 mb-3">
+                  <label for="siteName" class="form-label fw-bold"
+                    ><i class="fa-solid fa-book-bookmark pe-2"></i>Site
+                    Name</label
+                  >
                   <input
                     type="text"
                     class="form-control siteName"
@@ -63,8 +72,8 @@
 
                 <!-- site URL field -->
                 <div class="mb-3">
-                  <label for="siteUrl" class="form-label"
-                    >Example textarea</label
+                  <label for="siteUrl" class="form-label fw-bold"
+                    ><i class="fa-solid fa-link pe-2"></i>Site URL</label
                   >
                   <input
                     type="url"
@@ -73,7 +82,9 @@
                     placeholder="Website URL"
                   />
                 </div>
-                <button>Submit</button>
+                <div class="text-center">
+                  <button class="btn btn-secondary px-5 m-2">Submit</button>
+                </div>
               </div>
             </div>
           </div>
@@ -81,7 +92,7 @@
       </div>
 
       <div class="section">
-        <div class="container">
+        <div class="container pt-4">
           <div class="row">
             <div class="col">
               <div class="table-results">
@@ -99,10 +110,15 @@
                       <th scope="row" class="">1</th>
                       <td class="">google</td>
                       <td class="">
-                        <button class="btn btn-success">Visit</button>
+                        <button class="btn btn-success">
+                          <i class="fa-solid fa-eye text-white pe-2"></i>Visit
+                        </button>
                       </td>
                       <td class="">
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger">
+                          <i class="fa-solid fa-trash-can text-white pe-2"></i
+                          >Delete
+                        </button>
                       </td>
                     </tr>
                   </tbody>

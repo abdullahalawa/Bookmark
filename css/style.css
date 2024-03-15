@@ -4,3 +4,41 @@
 
 /*  font-family: "Righteous", sans-serif; */
 /* font-family: "Pacifico", cursive; */
+
+body {
+  background-color: #f7ecde;
+}
+
+div.header h1 span {
+  font-family: "Pacifico", cursive;
+  font-size: 3.2rem;
+  z-index: 1 !important;
+}
+
+div.header h1 span::after {
+  content: "";
+  width: 100%;
+  height: 23%;
+  position: absolute;
+  background-color: #fec260;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 15px;
+  z-index: -1;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+div.header h1 span:hover::after {
+  height: 50%;
+}
+
+div.form-inputs h3 {
+  font-family: "Righteous", sans-serif;
+  background: linear-gradient(
+    90deg,
+    rgba(98, 191, 98, 1) 24%,
+    rgba(255, 237, 28, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
