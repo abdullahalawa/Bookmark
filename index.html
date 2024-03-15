@@ -28,6 +28,92 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="container border-bottom">
+        <div class="row">
+          <div class="col">
+            <h1 class="py-5 text-center">Bookmarker</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+      <div class="section">
+        <div class="container py-4">
+          <div class="row">
+            <div class="col">
+              <div class="form-inputs">
+                <h3 class="text-center">Bookmark your favorite sites</h3>
+
+                <!-- form -->
+
+                <!-- sitename field -->
+                <div class="mb-3">
+                  <label for="siteName" class="form-label">Site Name</label>
+                  <input
+                    type="text"
+                    class="form-control siteName"
+                    id="siteName"
+                    placeholder="Bookmark Name"
+                  />
+                </div>
+
+                <!-- site URL field -->
+                <div class="mb-3">
+                  <label for="siteUrl" class="form-label"
+                    >Example textarea</label
+                  >
+                  <input
+                    type="url"
+                    class="form-control siteUrl"
+                    id="siteUrl"
+                    placeholder="Website URL"
+                  />
+                </div>
+                <button>Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="table-results">
+                <table class="table table-hover align-middle">
+                  <thead>
+                    <tr class="text-center align-middle">
+                      <th scope="col">Index</th>
+                      <th scope="col">Website Name</th>
+                      <th scope="col">Visit</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="text-center">
+                      <th scope="row" class="">1</th>
+                      <td class="">google</td>
+                      <td class="">
+                        <button class="btn btn-success">Visit</button>
+                      </td>
+                      <td class="">
+                        <button class="btn btn-danger">Delete</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
