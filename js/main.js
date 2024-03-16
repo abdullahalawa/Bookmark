@@ -4,11 +4,9 @@ var siteUrlInput = document.getElementById("siteUrl");
 var bookmarkListTable = document.getElementById("bookmarkListTable");
 
 var urlList = [];
-console.log(urlList);
 
-if (urlList.length == 0) {
+if (localStorage.getItem("urlList") != null) {
   urlList = JSON.parse(localStorage.getItem("urlList"));
-  console.log(urlList);
   displayBookmarks();
 }
 
@@ -36,7 +34,7 @@ function displayBookmarks() {
   var bookmarkDisplay = "";
 
   for (var i = 0; i < urlList.length; i++) {
-    bookmarkDisplay += `                    <tr class="text-center">
+    bookmarkDisplay += `<tr class="text-center">
         <td scope="row" class="">${i + 1}</td>
         <td class="">${urlList[i].siteName}</td>
         <td class="">
