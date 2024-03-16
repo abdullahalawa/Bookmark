@@ -4,6 +4,7 @@ var siteUrl = document.getElementById("siteUrl");
 var bookmarkListTable = document.getElementById("bookmarkListTable");
 
 var urlList = [];
+console.log(urlList);
 
 if (urlList.length == 0) {
   urlList = JSON.parse(localStorage.getItem("urlList"));
@@ -13,12 +14,10 @@ if (urlList.length == 0) {
 
 // Add New Bookmark
 function addNewBookmark() {
-  var newBookmark = {
+  urlList.push({
     siteName: siteName.value,
     siteUrl: siteUrl.value,
-  };
-
-  urlList.push(newBookmark);
+  });
   localStorage.setItem("urlList", JSON.stringify(urlList));
   displayBookmarks();
   clearInputs();
