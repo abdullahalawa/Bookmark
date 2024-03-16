@@ -1,10 +1,11 @@
 var siteNameInput = document.getElementById("siteName");
 var siteUrlInput = document.getElementById("siteUrl");
-
 var bookmarkListTable = document.getElementById("bookmarkListTable");
 
+// Main URL List Repository
 var urlList = [];
 
+// Return all saved items in Local Storage When the App start working
 if (localStorage.getItem("urlList") != null) {
   urlList = JSON.parse(localStorage.getItem("urlList"));
   displayBookmarks();
