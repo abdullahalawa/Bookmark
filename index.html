@@ -83,7 +83,12 @@
                   />
                 </div>
                 <div class="text-center">
-                  <button class="btn btn-secondary px-5 m-2">Submit</button>
+                  <button
+                    onclick="addNewBookmark()"
+                    class="btn btn-secondary px-5 m-2"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>
@@ -92,7 +97,7 @@
       </div>
 
       <div class="section">
-        <div class="container pt-4">
+        <div class="container pt-4 pb-5">
           <div class="row">
             <div class="col">
               <div class="table-results">
@@ -105,23 +110,7 @@
                       <th scope="col">Delete</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr class="text-center">
-                      <th scope="row" class="">1</th>
-                      <td class="">google</td>
-                      <td class="">
-                        <button class="btn btn-success">
-                          <i class="fa-solid fa-eye text-white pe-2"></i>Visit
-                        </button>
-                      </td>
-                      <td class="">
-                        <button class="btn btn-danger">
-                          <i class="fa-solid fa-trash-can text-white pe-2"></i
-                          >Delete
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
+                  <tbody id="bookmarkListTable"></tbody>
                 </table>
               </div>
             </div>
