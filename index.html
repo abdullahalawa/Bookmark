@@ -84,10 +84,19 @@
                 </div>
                 <div class="text-center">
                   <button
+                    id="addNewBookmark"
                     onclick="addNewBookmark()"
-                    class="btn btn-secondary px-5 m-2"
+                    class="btn btn-secondary px-5 my-2 mx-auto d-block"
                   >
                     Submit
+                  </button>
+
+                  <button
+                    id="updateBookmark"
+                    onclick="updateBookmark()"
+                    class="btn btn-secondary px-5 my-2 mx-auto d-none"
+                  >
+                    Update Bookmark
                   </button>
                 </div>
               </div>
@@ -107,6 +116,7 @@
                       <th scope="col">Index</th>
                       <th scope="col">Website Name</th>
                       <th scope="col">Visit</th>
+                      <th scope="col">Update</th>
                       <th scope="col">Delete</th>
                     </tr>
                   </thead>
