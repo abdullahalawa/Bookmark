@@ -1,5 +1,5 @@
-var siteName = document.getElementById("siteName");
-var siteUrl = document.getElementById("siteUrl");
+var siteNameInput = document.getElementById("siteName");
+var siteUrlInput = document.getElementById("siteUrl");
 
 var bookmarkListTable = document.getElementById("bookmarkListTable");
 
@@ -14,10 +14,12 @@ if (urlList.length == 0) {
 
 // Add New Bookmark
 function addNewBookmark() {
-  urlList.push({
-    siteName: siteName.value,
-    siteUrl: siteUrl.value,
-  });
+  var newBookmark = {
+    siteName: siteNameInput.value,
+    siteUrl: siteUrlInput.value,
+  };
+
+  urlList.push(newBookmark);
   localStorage.setItem("urlList", JSON.stringify(urlList));
   displayBookmarks();
   clearInputs();
@@ -25,8 +27,8 @@ function addNewBookmark() {
 
 // Clear inputs after submission
 function clearInputs() {
-  siteName.value = null;
-  siteUrl.value = null;
+  siteNameInput.value = null;
+  siteUrlInput.value = null;
 }
 
 // Display Bookmarks in table
