@@ -5,11 +5,12 @@ var bookmarkListTable = document.getElementById("bookmarkListTable");
 var addNewBookmarkButton = document.getElementById("addNewBookmark");
 var updateBookmarkButton = document.getElementById("updateBookmark");
 
-// Main URL List Repository
-var urlList = [];
-
-// saved index for updated product
-var updatedProduct;
+// Our Variables
+var urlList = []; // Main URL List Repository
+var updatedProduct; // saved index for updated product
+var nameRegex = /(\w+){2,}/g;
+var urlRegex =
+  /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/;
 
 // Return all saved items in Local Storage When the App start working
 if (localStorage.getItem("urlList") != null) {
