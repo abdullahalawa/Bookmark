@@ -42,3 +42,18 @@ div.form-inputs h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.error {
+  color: red;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.error::before {
+  content: "* ";
+}
+
+div.toast {
+  background-color: #007e50;
+  color: #fff;
+}

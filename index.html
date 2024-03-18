@@ -67,7 +67,12 @@
                     class="form-control siteName"
                     id="siteName"
                     placeholder="Bookmark Name"
+                    oninput="validation(nameRegex, siteNameInput)"
                   />
+                  <div id="error" class="error pt-1 d-none">
+                    Site Name should be only letters and numbers - Minimum 2
+                    charechters allowed
+                  </div>
                 </div>
 
                 <!-- site URL field -->
@@ -80,8 +85,14 @@
                     class="form-control siteUrl"
                     id="siteUrl"
                     placeholder="Website URL"
+                    oninput="validation(urlRegex, siteUrlInput)"
                   />
+                  <div id="error" class="error pt-1 d-none">
+                    Site URL should be a valid URL with a (http:// or https://)
+                  </div>
                 </div>
+
+                <!-- Submit Button and Update Button -->
                 <div class="text-center">
                   <button
                     id="addNewBookmark"
@@ -105,6 +116,7 @@
         </div>
       </div>
 
+      <!-- Date Table -->
       <div class="section">
         <div class="container pt-4 pb-5">
           <div class="row">
@@ -124,6 +136,81 @@
                 </table>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Validation Modal -->
+      <div
+        class="modal fade"
+        id="modal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Validation Erros
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h4 class="fs-6 fw-bold">
+                Site Name or Url is not valid, Please follow the rules below :
+              </h4>
+              <ul>
+                <li>
+                  Site Name should be
+                  <span
+                    class="text-danger fw-bold text-uppercase text-decoration-underline"
+                    >only letters and numbers</span
+                  >
+                  -
+                  <span
+                    class="text-danger fw-bold text-uppercase text-decoration-underline"
+                    >Minimum 2 charechters allowed</span
+                  >
+                </li>
+                <li>
+                  Site URL should be a
+                  <span
+                    class="text-danger fw-bold text-uppercase text-decoration-underline"
+                    >valid URL with a (http:// or https://)
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success submission toast -->
+      <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div
+          id="liveToast"
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-body">
+            <i class="fa-regular fa-thumbs-up pe-1"></i> Succesfully Submitted
           </div>
         </div>
       </div>

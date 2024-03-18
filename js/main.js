@@ -5,10 +5,15 @@ var bookmarkListTable = document.getElementById("bookmarkListTable");
 var addNewBookmarkButton = document.getElementById("addNewBookmark");
 var updateBookmarkButton = document.getElementById("updateBookmark");
 
+var validationModal = new bootstrap.Modal(document.getElementById("modal"), {});
+
+const toastLiveExample = document.getElementById("liveToast");
+const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+
 // Our Variables
 var urlList = []; // Main URL List Repository
 var updatedProduct; // saved index for updated product
-var nameRegex = /(\w+){2,}/g;
+var nameRegex = /^[A-Za-z0-9_-]{2,}$/;
 var urlRegex =
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/;
 
@@ -25,16 +30,30 @@ function addNewBookmark() {
     siteUrl: siteUrlInput.value,
   };
 
-  urlList.push(newBookmark);
-  localStorage.setItem("urlList", JSON.stringify(urlList));
-  displayBookmarks();
-  clearInputs();
+  if (
+    validation(nameRegex, siteNameInput) == true &&
+    validation(urlRegex, siteUrlInput) == true
+  ) {
+    urlList.push(newBookmark);
+    localStorage.setItem("urlList", JSON.stringify(urlList));
+    displayBookmarks();
+    clearInputs();
+    toastBootstrap.show();
+  } else {
+    validationModal.show(); //trigger validation modal
+  }
 }
 
 // Clear inputs after submission
 function clearInputs() {
   siteNameInput.value = null;
   siteUrlInput.value = null;
+
+  //clear validation signs in input feilds
+  siteNameInput.classList.remove("is-valid");
+  siteUrlInput.classList.remove("is-valid");
+  siteNameInput.classList.remove("is-invalid");
+  siteUrlInput.classList.remove("is-invalid");
 }
 
 // Display Bookmarks in table
@@ -89,15 +108,38 @@ function moveDataToInputs(dataIndex) {
 
 // Update Bookmark
 function updateBookmark() {
-  urlList[updatedProduct].siteName = siteNameInput.value;
-  urlList[updatedProduct].siteUrl = siteUrlInput.value;
+  if (
+    validation(nameRegex, siteNameInput) == true &&
+    validation(urlRegex, siteUrlInput) == true
+  ) {
+    urlList[updatedProduct].siteName = siteNameInput.value;
+    urlList[updatedProduct].siteUrl = siteUrlInput.value;
 
-  localStorage.setItem("urlList", JSON.stringify(urlList));
-  displayBookmarks();
+    localStorage.setItem("urlList", JSON.stringify(urlList));
+    displayBookmarks();
 
-  addNewBookmarkButton.classList.replace("d-none", "d-block");
-  updateBookmarkButton.classList.replace("d-block", "d-none");
-  clearInputs();
+    addNewBookmarkButton.classList.replace("d-none", "d-block");
+    updateBookmarkButton.classList.replace("d-block", "d-none");
+    clearInputs();
+    toastBootstrap.show();
+  } else {
+    validationModal.show(); //trigger validation modal
+  }
 
   console.log(urlList);
+}
+
+// inputs validation function
+function validation(regex, input) {
+  if (regex.test(input.value) == true) {
+    input.classList.add("is-valid");
+    input.classList.remove("is-invalid");
+    input.nextElementSibling.classList.replace("d-block", "d-none");
+    return true;
+  }
+
+  input.classList.add("is-invalid");
+  input.classList.remove("is-valid");
+  input.nextElementSibling.classList.replace("d-none", "d-block");
+  return false;
 }
