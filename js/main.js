@@ -1,18 +1,18 @@
+// HTML Elements
 var siteNameInput = document.getElementById("siteName");
 var siteUrlInput = document.getElementById("siteUrl");
 var bookmarkListTable = document.getElementById("bookmarkListTable");
-
 var addNewBookmarkButton = document.getElementById("addNewBookmark");
 var updateBookmarkButton = document.getElementById("updateBookmark");
-
 var validationModal = new bootstrap.Modal(document.getElementById("modal"), {});
-
 const toastLiveExample = document.getElementById("liveToast");
 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
 
 // Our Variables
 var urlList = []; // Main URL List Repository
 var updatedProduct; // saved index for updated product
+
+// Validation Regex
 var nameRegex = /^[A-Za-z0-9_-]{2,}$/;
 var urlRegex =
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/;
@@ -31,8 +31,8 @@ function addNewBookmark() {
   };
 
   if (
-    validation(nameRegex, siteNameInput) == true &&
-    validation(urlRegex, siteUrlInput) == true
+    (validation(nameRegex, siteNameInput) == true) &
+    (validation(urlRegex, siteUrlInput) == true)
   ) {
     urlList.push(newBookmark);
     localStorage.setItem("urlList", JSON.stringify(urlList));
